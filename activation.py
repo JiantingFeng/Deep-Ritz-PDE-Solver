@@ -3,6 +3,14 @@ from torch import nn
 import torch.nn.functional as F
 
 
+class SquaredReLU(nn.Module):
+    def __init__(self):
+        super(SquaredReLU, self).__init__()
+
+    def forward(self, x):
+        return torch.pow(F.relu(x), 2)
+
+
 class ReLU_k(nn.Module):
     def __init__(self, p=1) -> None:
         super(ReLU_k, self).__init__()

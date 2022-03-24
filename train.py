@@ -44,7 +44,7 @@ SKIP = args.skip
 
 sns.set_style("white")
 
-exp_name = "SiLU"
+exp_name = "SquaredReLU"
 path = os.path.join("./results/", exp_name)
 os.makedirs(path, exist_ok=True)
 
@@ -60,7 +60,7 @@ if __name__ == "__main__":
         hidden_dim=HIDDEN_DIM,
         num_blks=NUM_HIDDENS,
         skip=SKIP,
-        act=nn.SiLU(),
+        act=SquaredReLU(),
     ).to(device)
     losses = []
     losses_r = []
@@ -119,6 +119,7 @@ if __name__ == "__main__":
         losses_r.append(abs(loss_r))
         loss_b = loss_b.detach().numpy()
         losses_b.append(abs(loss_b))
+        saved = False
         if epoch > int(4 * EPOCHS / 5):
             if torch.abs(loss) < best_loss:
                 best_loss = torch.abs(loss).item()
@@ -126,6 +127,8 @@ if __name__ == "__main__":
                 best_r = loss_r
                 best_epoch = epoch
                 torch.save(model.state_dict(), os.path.join(path, "ckpt.bin"))
+        if not saved:
+            torch.save(model.state_dict(), os.path.join(path, "ckpt.bin"))
     print(
         "Best epoch:",
         best_epoch,
