@@ -52,7 +52,7 @@ os.makedirs(path, exist_ok=True)
 def u(x):
     ans = 0
     for i in range(5):
-        u += x[:, 2 * i] * x[:, 2 * i + 1]
+        ans += x[:, 2 * i] * x[:, 2 * i + 1]
     return ans
 
 
