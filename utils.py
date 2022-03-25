@@ -42,6 +42,15 @@ def get_boundary_points(N=33):
     return xb
 
 
+def get_boundary_points_high(N=100):
+    xb = torch.rand(2 * 10 * N, 10)
+    for i in range(10):
+        xb[2 * i * N : (2 * i + 1) * N, i] = 0.0
+        xb[(2 * i + 1) * N : (2 * i + 2) * N, i] = 1.0
+
+    return xb
+
+
 def plot_loss_and_save(EPOCHS, SAMPLE, losses, losses_r, losses_b, path="."):
     plt.figure()
     fig, ax = plt.subplots()
@@ -83,3 +92,18 @@ def plot_result_and_save(pred, path="."):
     ax.set_ylabel(r"y")
     plt.colorbar(h)
     plt.savefig(os.path.join(path, "dnn_solution.pdf"))
+
+
+def plot_loss_and_save_high(EPOCHS, SAMPLE, losses, path="."):
+    plt.figure()
+    fig, ax = plt.subplots()
+    ax.plot(
+        range(1, EPOCHS, ceil(EPOCHS / SAMPLE)),
+        np.log(losses[:: ceil(EPOCHS / SAMPLE)]),
+        label="Loss",
+    )
+    ax.set_title(r"$Log$ Training Loss")
+    ax.set_xlabel("Epoch")
+    ax.set_ylabel(r"$\log$ Loss")
+    ax.legend()
+    plt.savefig(os.path.join(path, "training_loss.pdf"))
