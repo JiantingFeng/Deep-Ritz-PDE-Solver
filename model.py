@@ -33,7 +33,7 @@ def initialize_weights(m):
         nn.init.constant_(m.bias.data, 0)
 
     elif isinstance(m, nn.Linear):
-        nn.init.kaiming_uniform_(m.weight.data)
+        nn.init.kaiming_normal_(m.weight.data)
         nn.init.constant_(m.bias.data, 0)
 
 

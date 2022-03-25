@@ -18,12 +18,12 @@ from utils import *
 from model import *
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-e", "--epochs", type=int, default=50000)
+parser.add_argument("-e", "--epochs", type=int, default=30000)
 parser.add_argument("-lr", "--learningrate", type=float, default=3e-3)
 parser.add_argument("-i", "--indim", type=int, default=10)
 parser.add_argument("-o", "--outdim", type=int, default=1)
-parser.add_argument("-hd", "--hiddim", type=int, default=10)
-parser.add_argument("-hn", "--hidnum", type=int, default=5)
+parser.add_argument("-hd", "--hiddim", type=int, default=20)
+parser.add_argument("-hn", "--hidnum", type=int, default=10)
 parser.add_argument("-p", "--pretrained", type=bool, default=False)
 parser.add_argument("-s", "--seed", type=int, default=2022)
 parser.add_argument("-sp", "--sample", type=int, default=100)
@@ -52,7 +52,7 @@ os.makedirs(path, exist_ok=True)
 def u(x):
     ans = 0
     for i in range(5):
-        ans += x[:, 2 * i] * x[:, 2 * i + 1]
+        ans += x[:, 2 * i : 2 * i + 1] * x[:, 2 * i + 1 : 2 * i + 2]
     return ans
 
 
@@ -69,6 +69,7 @@ if __name__ == "__main__":
         skip=SKIP,
         act=nn.SiLU(),
     ).to(device)
+    # print(model)
     losses = []
     losses_r = []
     losses_b = []
@@ -115,7 +116,7 @@ if __name__ == "__main__":
         loss.backward()
         optimizer.step()
         scheduler.step()
-        loss_t = loss.detach().numpy()
+        loss_t = loss.cpu().detach().numpy()
         losses.append(abs(loss_t))
         if epoch > int(4 * EPOCHS / 5):
             if torch.abs(loss) < best_loss:
@@ -134,10 +135,11 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load(os.path.join(path, "ckpt.bin")))
     print("Load weights from checkpoint!")
     with torch.no_grad():
-        x = torch.rand(100000, 10)
+        # can't be too big, or
+        x = torch.rand(10000, 10)
         u_exact = u(x)
         x = x.to(device)
-        u_pred = model(x)
+        u_pred = model(x).cpu()
     err_l2 = torch.sqrt(torch.mean(torch.pow(u_pred - u_exact, 2))) / torch.sqrt(
         torch.mean(torch.pow(u_exact, 2))
     )
