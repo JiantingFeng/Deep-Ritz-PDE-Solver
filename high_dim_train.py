@@ -44,7 +44,7 @@ SKIP = args.skip
 
 sns.set_style("white")
 
-exp_name = "HighDim_SiLU"
+exp_name = "HighDim_Tanh"
 path = os.path.join("./results/", exp_name)
 os.makedirs(path, exist_ok=True)
 
@@ -67,7 +67,7 @@ if __name__ == "__main__":
         hidden_dim=HIDDEN_DIM,
         num_blks=NUM_HIDDENS,
         skip=SKIP,
-        act=nn.SiLU(),
+        act=nn.Tanh(),
     ).to(device)
     # print(model)
     losses = []
