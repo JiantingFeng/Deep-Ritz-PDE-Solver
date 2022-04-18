@@ -19,7 +19,8 @@ def seed_everything(seed=42):
 
 
 def get_param_num(model):
-    return sum(dict((p.data_ptr(), p.numel()) for p in model.parameters()).values())
+    return sum(
+        dict((p.data_ptr(), p.numel()) for p in model.parameters()).values())
 
 
 def get_interior_points(N=128, d=2):
@@ -45,8 +46,8 @@ def get_boundary_points(N=33):
 def get_boundary_points_high(N=100):
     xb = torch.rand(2 * 10 * N, 10)
     for i in range(10):
-        xb[2 * i * N : (2 * i + 1) * N, i] = 0.0
-        xb[(2 * i + 1) * N : (2 * i + 2) * N, i] = 1.0
+        xb[2 * i * N:(2 * i + 1) * N, i] = 0.0
+        xb[(2 * i + 1) * N:(2 * i + 2) * N, i] = 1.0
 
     return xb
 
@@ -56,17 +57,17 @@ def plot_loss_and_save(EPOCHS, SAMPLE, losses, losses_r, losses_b, path="."):
     fig, ax = plt.subplots()
     ax.plot(
         range(1, EPOCHS, ceil(EPOCHS / SAMPLE)),
-        np.log(losses[:: ceil(EPOCHS / SAMPLE)]),
+        np.log(losses[::ceil(EPOCHS / SAMPLE)]),
         label="Total Loss",
     )
     ax.plot(
         range(1, EPOCHS, ceil(EPOCHS / SAMPLE)),
-        np.log(losses_r[:: ceil(EPOCHS / SAMPLE)]),
+        np.log(losses_r[::ceil(EPOCHS / SAMPLE)]),
         label="Variational Loss",
     )
     ax.plot(
         range(1, EPOCHS, ceil(EPOCHS / SAMPLE)),
-        np.log(losses_b[:: ceil(EPOCHS / SAMPLE)]),
+        np.log(losses_b[::ceil(EPOCHS / SAMPLE)]),
         label="Boundary Loss",
     )
     ax.set_title(r"$Log$ Training Loss")
@@ -76,7 +77,7 @@ def plot_loss_and_save(EPOCHS, SAMPLE, losses, losses_r, losses_b, path="."):
     plt.savefig(os.path.join(path, "training_loss.pdf"))
 
 
-def plot_result_and_save(pred, path="."):
+def plot_result_and_save(pred, path=".", NAME="dnn_solution.pdf"):
     plt.figure()
     fig, ax = plt.subplots()
     h = ax.imshow(
@@ -91,7 +92,7 @@ def plot_result_and_save(pred, path="."):
     ax.set_xlabel(r"x")
     ax.set_ylabel(r"y")
     plt.colorbar(h)
-    plt.savefig(os.path.join(path, "dnn_solution.pdf"))
+    plt.savefig(os.path.join(path, NAME))
 
 
 def plot_loss_and_save_high(EPOCHS, SAMPLE, losses, path="."):
@@ -99,7 +100,7 @@ def plot_loss_and_save_high(EPOCHS, SAMPLE, losses, path="."):
     fig, ax = plt.subplots()
     ax.plot(
         range(1, EPOCHS, ceil(EPOCHS / SAMPLE)),
-        np.log(losses[:: ceil(EPOCHS / SAMPLE)]),
+        np.log(losses[::ceil(EPOCHS / SAMPLE)]),
         label="Loss",
     )
     ax.set_title(r"$Log$ Training Loss")

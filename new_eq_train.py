@@ -104,7 +104,8 @@ if __name__ == "__main__":
             only_inputs=True,
         )[0]
         # print(torch.sum(torch.pow(grads, 2), dim=1).shape, output_r.shape)
-        loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1) - output_r
+        #  loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1) - output_r
+        loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1)
         loss_r = torch.mean(loss_r)
         loss_b = torch.mean(torch.pow(output_b, 2))
         # loss = 4 * loss_r + 9 * 500 * loss_b
