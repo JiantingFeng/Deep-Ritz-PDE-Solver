@@ -44,7 +44,7 @@ SKIP = args.skip
 
 sns.set_style("white")
 
-exp_name = "GELU_with_LOSS"
+exp_name = "ReLU_0"
 path = os.path.join("./results/", exp_name)
 os.makedirs(path, exist_ok=True)
 
@@ -67,17 +67,16 @@ if __name__ == "__main__":
         hidden_dim=HIDDEN_DIM,
         num_blks=NUM_HIDDENS,
         skip=SKIP,
-        act=nn.GELU(),
+        act=nn.ReLU(),
     ).to(device)
     losses = []
     losses_r = []
     losses_b = []
     model.apply(initialize_weights)
     optimizer = optim.Adam(model.parameters(), lr=LR)
-    scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer,
-                                                               T_0=500,
-                                                               T_mult=2,
-                                                               last_epoch=-1)
+    scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(
+        optimizer, T_0=500, T_mult=2, last_epoch=-1
+    )
     best_loss, best_b, best_r, best_epoch = 0x3F3F3F, 0x3F3F3F, 0x3F3F3F, 0
     bar = tqdm(range(EPOCHS))
     model.train()
@@ -104,17 +103,20 @@ if __name__ == "__main__":
             only_inputs=True,
         )[0]
         # print(torch.sum(torch.pow(grads, 2), dim=1).shape, output_r.shape)
-        loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1) - output_r
+        # loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1) - output_r
+        loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1)
         loss_r = torch.mean(loss_r)
         loss_b = torch.mean(torch.pow(output_b, 2))
         # loss = 4 * loss_r + 9 * 500 * loss_b
         # loss = loss_r + 4 * 500 * loss_b
         loss = loss_r + 500 * loss_b
-        bar.set_postfix({
-            "Tol Loss": "{:.4f}".format(abs(loss)),
-            "Var Loss": "{:.4f}".format(abs(loss_r)),
-            "Bnd Loss": "{:.4f}".format(abs(loss_b)),
-        })
+        bar.set_postfix(
+            {
+                "Tol Loss": "{:.4f}".format(abs(loss)),
+                "Var Loss": "{:.4f}".format(abs(loss_r)),
+                "Bnd Loss": "{:.4f}".format(abs(loss_b)),
+            }
+        )
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -160,9 +162,11 @@ if __name__ == "__main__":
         Z = Z.to(device)
         pred = model(Z)
 
-    point_wise_loss = torch.abs(
-        pred.reshape(1001, 1001) -
-        u_real(Z).reshape(1001, 1001)).cpu().numpy()
+    point_wise_loss = (
+        torch.abs(pred.reshape(1001, 1001) - u_real(Z).reshape(1001, 1001))
+        .cpu()
+        .numpy()
+    )
     plot_result_and_save(point_wise_loss, path, NAME="loss")
     pred = pred.cpu().numpy()
     pred = pred.reshape(1001, 1001)

@@ -4,6 +4,30 @@ import torch.nn.functional as F
 import activation
 
 
+class PowerReLU(nn.Module):
+    """
+    Implements simga(x)^(power)
+    Applies a power of the rectified linear unit element-wise.
+    NOTE: inplace may not be working.
+    Can set inplace for inplace operation if desired.
+    BUT I don't think it is working now.
+    INPUT:
+        x -- size (N,*) tensor where * is any number of additional
+             dimensions
+    OUTPUT:
+        y -- size (N,*)
+    """
+
+    def __init__(self, inplace=False, power=3):
+        super(PowerReLU, self).__init__()
+        self.inplace = inplace
+        self.power = power
+
+    def forward(self, input):
+        y = F.relu(input, inplace=self.inplace)
+        return torch.pow(y, self.power)
+
+
 class ResBlock(nn.Module):
     def __init__(self, io_dim, hidden_dim, skip=True, act=activation.ReLU_k()) -> None:
         super(ResBlock, self).__init__()

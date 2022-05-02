@@ -8,23 +8,13 @@ from block import *
 
 class FullConnected_DNN(nn.Module):
     def __init__(
-            self,
-            in_dim=2,
-            out_dim=1,
-            hidden_dim=10,
-            num_blks=5,
-            skip=True,
-            act=ReLU_k(),
+        self, act, in_dim=2, out_dim=1, hidden_dim=10, num_blks=5, skip=True,
     ) -> None:
         super(FullConnected_DNN, self).__init__()
         self.fc_in = nn.Linear(in_dim, hidden_dim)
         blks = [
-            ResBlock(
-                io_dim=hidden_dim,
-                hidden_dim=hidden_dim,
-                skip=skip,
-                act=act,
-            ) for _ in range(num_blks)
+            ResBlock(io_dim=hidden_dim, hidden_dim=hidden_dim, skip=skip, act=act,)
+            for _ in range(num_blks)
         ]
         self.backbone = nn.Sequential(*blks)
         self.fc_out = nn.Linear(hidden_dim, out_dim)
@@ -56,4 +46,4 @@ if __name__ == "__main__":
     # print(out)
     # print(model)
 
-    summary(model, (2, ))
+    summary(model, (2,))
