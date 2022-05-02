@@ -1,0 +1,164 @@
+absl-py==1.0.0
+aiohttp==3.8.1
+aiosignal==1.2.0
+albumentations==1.1.0
+appnope==0.1.2
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.0.5
+astunparse==1.6.3
+async-timeout==4.0.2
+attrs==21.4.0
+backcall==0.2.0
+bleach==4.1.0
+Bottleneck==1.3.2
+brotlipy==0.7.0
+cachetools==5.0.0
+certifi==2021.10.8
+cffi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/croot-2p6q7e2r/cffi_1642701115063/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click==8.0.4
+cloudpickle==2.0.0
+cryptography @ file:///opt/concourse/worker/volumes/live/732d2752-e4cb-4715-726b-56d890f169fb/volume/cryptography_1639414586414/work
+cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
+debugpy==1.5.1
+decorator==5.1.1
+defusedxml==0.7.1
+entrypoints==0.4
+executing==0.8.3
+filelock==3.6.0
+flatbuffers==2.0
+fonttools==4.25.0
+frozenlist==1.3.0
+fsspec==2022.2.0
+future==0.18.2
+gast==0.5.3
+google-auth==2.6.0
+google-auth-oauthlib==0.4.6
+google-pasta==0.2.0
+grpcio==1.44.0
+gym==0.22.0
+gym-notices==0.0.5
+h5py==3.6.0
+huggingface-hub==0.4.0
+idna @ file:///tmp/build/80754af9/idna_1637925883363/work
+imageio==2.16.1
+imbalanced-learn==0.9.0
+importlib-metadata==4.11.2
+importlib-resources==5.4.0
+ipykernel==6.9.1
+ipython==8.1.1
+ipython-genutils==0.2.0
+ipywidgets==7.6.5
+jedi==0.18.1
+Jinja2==3.0.3
+joblib==1.1.0
+jsonschema==4.4.0
+jupyter==1.0.0
+jupyter-client==7.1.2
+jupyter-console==6.4.0
+jupyter-core==4.9.2
+jupyterlab-pygments==0.1.2
+jupyterlab-widgets==1.0.2
+keras==2.8.0
+Keras-Preprocessing==1.1.2
+kiwisolver @ file:///Users/builder/miniconda3/envs/prefect/conda-bld/kiwisolver_1638569885739/work
+libclang==13.0.0
+lxml @ file:///opt/concourse/worker/volumes/live/841c06e2-afb5-4143-7393-7301276d4e13/volume/lxml_1640178269776/work
+Markdown==3.3.6
+MarkupSafe==2.1.0
+matplotlib @ file:///opt/concourse/worker/volumes/live/0da721da-13cb-462d-69c8-9ee9bb3461fb/volume/matplotlib-suite_1645455704170/work
+matplotlib-inline==0.1.3
+mistune==0.8.4
+mkl-fft==1.3.1
+mkl-random @ file:///opt/concourse/worker/volumes/live/f196a661-8e33-4aac-63bc-efb2ff50e035/volume/mkl_random_1626186080069/work
+mkl-service==2.4.0
+multidict==6.0.2
+munkres==1.1.4
+nbclient==0.5.11
+nbconvert==6.4.2
+nbformat==5.1.3
+nest-asyncio==1.5.4
+networkx==2.7
+notebook==6.4.8
+numexpr @ file:///opt/concourse/worker/volumes/live/52f18ae0-3912-48f4-7832-7d22abf43616/volume/numexpr_1640704220628/work
+numpy @ file:///opt/concourse/worker/volumes/live/ceac9fd4-1ae1-48f8-612a-0c99bf783d0e/volume/numpy_and_numpy_base_1634106709647/work
+oauthlib==3.2.0
+olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work
+opencv-python==4.5.5.62
+opencv-python-headless==4.5.5.62
+opt-einsum==3.3.0
+packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+pandas==1.4.1
+pandas-datareader @ file:///tmp/build/80754af9/pandas-datareader_1626259591421/work
+pandocfilters==1.5.0
+parso==0.8.3
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==8.4.0
+prometheus-client==0.13.1
+prompt-toolkit==3.0.28
+protobuf==3.19.4
+ptyprocess==0.7.0
+pure-eval==0.2.2
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pyDeprecate==0.3.1
+pygame==2.1.2
+Pygments==2.11.2
+pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
+pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
+pyrsistent==0.18.1
+PySocks @ file:///opt/concourse/worker/volumes/live/85a5b906-0e08-41d9-6f59-084cee4e9492/volume/pysocks_1594394636991/work
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytorch-lightning==1.5.10
+pytz==2021.3
+PyWavelets==1.2.0
+PyYAML==6.0
+pyzmq==22.3.0
+qtconsole==5.2.2
+QtPy==2.0.1
+qudida==0.0.4
+regex==2022.3.2
+requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
+requests-oauthlib==1.3.1
+rsa==4.8
+sacremoses==0.0.47
+scikit-image==0.19.2
+scikit-learn==1.0.2
+scipy==1.8.0
+Send2Trash==1.8.0
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+stack-data==0.2.0
+tensorboard==2.8.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
+tensorflow==2.8.0
+tensorflow-io-gcs-filesystem==0.24.0
+termcolor==1.1.0
+terminado==0.13.2
+testpath==0.6.0
+tf-estimator-nightly==2.8.0.dev2021122109
+tfimm==0.2.5
+threadpoolctl==3.1.0
+tifffile==2022.2.9
+timm==0.5.4
+tokenizers==0.11.6
+torch==1.10.2
+torchmetrics==0.7.2
+torchsummary==1.5.1
+torchvision==0.11.3
+tornado @ file:///opt/concourse/worker/volumes/live/05341796-4198-4ded-4a9a-332fde3cdfd1/volume/tornado_1606942323372/work
+tqdm==4.63.0
+traitlets==5.1.1
+transformers==4.17.0
+typing_extensions==4.1.1
+urllib3 @ file:///opt/conda/conda-bld/urllib3_1643638302206/work
+wcwidth==0.2.5
+webencodings==0.5.1
+Werkzeug==2.0.3
+widgetsnbextension==3.5.2
+wrapt==1.13.3
+yarl==1.7.2
+zipp==3.7.0
