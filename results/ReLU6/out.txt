@@ -1,8 +1,0 @@
-Training Device: cpu
-Random Seed: 42
-Training Epoch 29999: 100%|█| 30000/30000 [01:48<00:00, 275.54it/s, Tol Loss=0.0
-Best epoch: 25689 Best loss: 0.014845888130366802 Best Var loss: -0.018028768 Best Boundary loss 6.365759e-06
-Training time: 108.87702298164368
-# of parameters: 1141
-Load weights from checkpoint!
-Output figure saved!

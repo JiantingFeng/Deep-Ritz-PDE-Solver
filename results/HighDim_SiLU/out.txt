@@ -1,9 +1,0 @@
-Training Device: cpu
-Random Seed: 2022
-Training Epoch 29999: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30000/30000 [24:04<00:00, 20.77it/s, Loss=0.2594]
-Best epoch: 29930 Best loss: 0.23091556131839752
-Training time: 1444.4094688892365
-# of parameters: 8641
-Load weights from checkpoint!
-L^2 relative error: tensor(0.0022)
-Output figure saved!
