@@ -50,7 +50,7 @@ os.makedirs(path, exist_ok=True)
 
 
 def u_real(x):
-    return (1 - x[:, 0] ** 2) * (1 - x[:, 1] ** 2)
+    return (1 - x[:, 0]**2) * (1 - x[:, 1]**2)
 
 
 def fetch_interior_points(N=128, d=2):
@@ -87,9 +87,10 @@ if __name__ == "__main__":
     losses_b = []
     model.apply(initialize_weights)
     optimizer = optim.Adam(model.parameters(), lr=LR)
-    scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(
-        optimizer, T_0=500, T_mult=2, last_epoch=-1
-    )
+    scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer,
+                                                               T_0=500,
+                                                               T_mult=2,
+                                                               last_epoch=-1)
     best_loss, best_b, best_r, best_epoch = 0x3F3F3F, 0x3F3F3F, 0x3F3F3F, 0
     bar = tqdm(range(EPOCHS))
     model.train()
@@ -118,22 +119,18 @@ if __name__ == "__main__":
         # print(torch.sum(torch.pow(grads, 2), dim=1).shape, output_r.shape)
         # loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1) - output_r
         # loss_r = 0.5 * torch.sum(torch.pow(grads, 2), dim=1)
-        loss_r = (
-            0.5 * torch.sum(torch.pow(grads, 2), dim=1)
-            - (4 - 2 * torch.sum(torch.pow(xr, 2), dim=1)) * output_r
-        )
+        loss_r = (0.5 * torch.sum(torch.pow(grads, 2), dim=1) -
+                  (4 - 2 * torch.sum(torch.pow(xr, 2), dim=1)) * output_r)
         loss_r = torch.mean(loss_r)
         loss_b = torch.mean(torch.pow(output_b, 2))
         # loss = 4 * loss_r + 9 * 500 * loss_b
         loss = loss_r + 100 * loss_b
         # loss = loss_r + 500 * loss_b
-        bar.set_postfix(
-            {
-                "Tol Loss": "{:.4f}".format(abs(loss)),
-                "Var Loss": "{:.4f}".format(abs(loss_r)),
-                "Bnd Loss": "{:.4f}".format(abs(loss_b)),
-            }
-        )
+        bar.set_postfix({
+            "Tol Loss": "{:.4f}".format(abs(loss)),
+            "Var Loss": "{:.4f}".format(abs(loss_r)),
+            "Bnd Loss": "{:.4f}".format(abs(loss_b)),
+        })
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -191,9 +188,8 @@ if __name__ == "__main__":
     pred = pred.reshape(1001, 1001)
     plot_result_and_save(pred, path)
     # print(type(pred), type(u_real(Z)))
-    l2_loss = (
-        np.sqrt(np.sum(np.square(pred - u_real(Z).cpu().numpy().reshape(1001, 1001))))
-        * (2 / 1000) ** 2
-    )
+    l2_loss = (np.sqrt(
+        np.sum(np.square(pred - u_real(Z).cpu().numpy().reshape(1001, 1001))))
+               * (2 / 1000)**2)
     print(f"l2 Loss: {l2_loss}")
     print("Output figure saved!")
