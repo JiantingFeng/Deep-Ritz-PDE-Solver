@@ -16,7 +16,7 @@
 
 This project is mainly inspired by Deep Ritz Method proposed by E Weinan, et al. And some codes are adopted from 
 
-[]: https://github.com/ZeyuJia/DeepRitzMethod
+https://github.com/ZeyuJia/DeepRitzMethod
 
 
 
@@ -61,16 +61,11 @@ $$
 
 the corresponding functional optimization problem is
 $$
-\begin{equation}
-		\label{eq:min_var}
 		J[v]=\int_\Omega\Big[\frac{1}{2}\sum_{i,k}a_{ik}\partial_iv\partial_kv +\frac{1}{2}a_0v^2-fv\Big]dx
-	\end{equation}
 $$
 and the solution satisfies
 $$
-\begin{equation}
 		u = \arg\min_{v\in H} J[v]
-	\end{equation}
 $$
 Here, $H$ is DNN functional space
 
@@ -78,13 +73,10 @@ Here, $H$ is DNN functional space
 
 For a typical machine learning algorithm, loss function is essential, here, we use
 $$
-\begin{equation}
-	\label{eq:loss}
 	\begin{split}
 		l(u) &= J[u] + \beta \int_{\partial\Omega}|u-u_{\text{bnd}}|^2\textrm dx\\
 		&= \int_\Omega\Big(\frac{1}{2}\sum_{i,k}a_{i,k}\partial_i u\partial_j u +\frac{1}{2}a_0u^2-fu\Big)\textrm dx + \beta \int_{\partial\Omega}|u-u_{\text{bnd}}|^2\textrm ds
 	\end{split}
-\end{equation}
 $$
 as our loss function
 
