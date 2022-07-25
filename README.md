@@ -60,24 +60,30 @@ $$
 $$
 
 the corresponding functional optimization problem is
+
 $$
 		J[v]=\int_\Omega\Big[\frac{1}{2}\sum_{i,k}a_{ik}\partial_iv\partial_kv +\frac{1}{2}a_0v^2-fv\Big]dx
 $$
+
 and the solution satisfies
+
 $$
 		u = \arg\min_{v\in H} J[v]
 $$
+
 Here, $H$ is DNN functional space
 
 #### Insert Boundary Condition
 
 For a typical machine learning algorithm, loss function is essential, here, we use
+
 $$
 	\begin{split}
 		l(u) &= J[u] + \beta \int_{\partial\Omega}|u-u_{\text{bnd}}|^2\textrm dx\\
 		&= \int_\Omega\Big(\frac{1}{2}\sum_{i,k}a_{i,k}\partial_i u\partial_j u +\frac{1}{2}a_0u^2-fu\Big)\textrm dx + \beta \int_{\partial\Omega}|u-u_{\text{bnd}}|^2\textrm ds
 	\end{split}
 $$
+
 as our loss function
 
 #### Define the architecture of DNN
