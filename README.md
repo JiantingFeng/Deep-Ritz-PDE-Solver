@@ -1,4 +1,6 @@
-  <h3 align="center">DRM-PDE: Deep Ritz Method for Partial Differetial Equations</h3>
+  <h1 align="center">DRM-PDE: Deep Ritz Method for Partial Differetial Equations</h1>
+
+<img src="docs/DRM.jpg" alt="logo" width="468"/>
 
   <p align="center">
     🥸A project for solving Partial Differential Equations with Deep Neural Network!
@@ -103,7 +105,7 @@ Randomly sample points inside $\Omega$ and $\partial \Omega$, pass through the N
 <!-- CONTRIBUTING -->
 ## Contributing
 
-No further maintenance for this project, you can just fort this project and make changes without contacing me.
+No further maintenance for this project, you can just fort this project and make changes without contacting me.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
