@@ -114,12 +114,15 @@ No further maintenance for this project, you can just fort this project and make
 
 <!-- CONTACT -->
 ## Contact
-
+<span>
 Jianting Feng -  gianting01@gmail.com
+</span>
+<span>
 Homepage - [https://jiantingfeng.vip](https://jiantingfeng.vip)
-
+</span>
+<span>
 Project Link - [https://github.com/JiantingFeng/
 Deep-Ritz-PDE-Solver](https://github.com/JiantingFeng/
 Deep-Ritz-PDE-Solver)
-
+</span>
 <p align="right">(<a href="#top">back to top</a>)</p>
