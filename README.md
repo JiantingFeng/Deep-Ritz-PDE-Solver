@@ -1,10 +1,9 @@
-  <h1 align="center">DRM-PDE: Deep Ritz Method for Partial Differetial Equations</h1>
+<h1 align="center">Deep Ritz PDE Solver: Deep Ritz Method for Partial Differetial Equations</h1>
+    🪐 A project for solving Partial Differential Equations with Deep Neural Network!
 <p align="center">
 <img src="docs/DRM.jpg" alt="logo" width="468"/>
 </p>
-  <p align="center">
-    🥸A project for solving Partial Differential Equations with Deep Neural Network!
-    <br />
+
 
 
 
@@ -117,7 +116,10 @@ No further maintenance for this project, you can just fort this project and make
 ## Contact
 
 Jianting Feng -  gianting01@gmail.com
+Homepage - [https://jiantingfeng.vip](https://jiantingfeng.vip)
 
-Project Link: [https://github.com/JiantingFeng/DRM-PDE](https://github.com/JiantingFeng/DRM-PDE)
+Project Link - [https://github.com/JiantingFeng/
+Deep-Ritz-PDE-Solver](https://github.com/JiantingFeng/
+Deep-Ritz-PDE-Solver)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
