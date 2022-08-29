@@ -118,11 +118,10 @@ No further maintenance for this project, you can just fort this project and make
 Jianting Feng -  gianting01@gmail.com
 </span>
 <span>
-Homepage - [https://jiantingfeng.vip](https://jiantingfeng.vip)
+Homepage - [https://jiantingfeng.vip]
 </span>
 <span>
 Project Link - [https://github.com/JiantingFeng/
-Deep-Ritz-PDE-Solver](https://github.com/JiantingFeng/
-Deep-Ritz-PDE-Solver)
+Deep-Ritz-PDE-Solver]
 </span>
 <p align="right">(<a href="#top">back to top</a>)</p>
