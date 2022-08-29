@@ -1,7 +1,7 @@
   <h1 align="center">DRM-PDE: Deep Ritz Method for Partial Differetial Equations</h1>
-
+<p align="center">
 <img src="docs/DRM.jpg" alt="logo" width="468"/>
-
+</p>
   <p align="center">
     🥸A project for solving Partial Differential Equations with Deep Neural Network!
     <br />
